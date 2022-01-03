@@ -1,0 +1,44 @@
+.shortcutContainer {
+	height: 400px;
+	width: 180px;
+	background-color: white;
+	padding: 6px;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.shortcutItem {
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    font-size: 10px;
+}
+
+.shortcutItemHeading {
+    margin-bottom: 4px;
+}
+
+
+.showMoreContainer {
+    display: flex;
+    color: steelblue;
+    cursor: pointer;
+}
+
+.contentIcons {
+    height: 18px;
+    width: 18px;
+}
+
+.select {
+	border: none;
+	background-color: transparent;
+    color: steelblue;
+}
+
+.select:focus {
+	border: none;
+	background-color: transparent;
+}

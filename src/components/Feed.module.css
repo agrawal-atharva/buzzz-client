@@ -1,0 +1,31 @@
+.fragment {
+	background-color: rgb(180, 176, 176);
+}
+
+
+.main {
+	margin: 0 auto;
+	margin-top: 8px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.leftContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.middleContainer {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap: 15px;
+}
+
+.rightContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}

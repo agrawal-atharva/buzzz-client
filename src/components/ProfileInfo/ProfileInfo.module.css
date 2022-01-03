@@ -1,0 +1,62 @@
+.profileInfoContainer {
+	margin: 0 auto;
+	border-radius: 12px;
+	height: 180px;
+	width: 180px;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+}
+
+.profileImgContainer {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin-bottom: 8px;
+}
+
+.profileCoverImg {
+	height: 45px;
+	width: 100%;
+    border-radius: 12px 12px 0px 0px;
+}
+
+.profileDisplayImg {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+}
+
+.profileText {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	/* padding: 3px; */
+	margin-bottom: 3px;
+}
+
+.profileRole {
+	font-size: 8px;
+}
+
+.profilePostContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	/* padding: 3px; */
+}
+
+.profilePostItems {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 3px;
+}
+
+.postViewCount {
+	font-size: 12px;
+}
+
+.postViewText {
+	font-size: 10px;
+}
