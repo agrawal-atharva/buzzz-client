@@ -12,8 +12,8 @@ import { addFriend } from '../../redux/actions/userActions/addFriendAction';
 
 function UserProfile(props) {
 	const currentUser = useSelector((state) => state.currentUser.currentUser);
-	const addFriend = useSelector((state) => state.addFriends);
-	console.log('Add friends', addFriend);
+	const addFriends = useSelector((state) => state.addFriends);
+	console.log('Add friends', addFriends);
 	const { username, profilePicture, friends } = currentUser;
 	const friendsCount = friends.length;
 	const { profileId, currentUserId } = useParams();

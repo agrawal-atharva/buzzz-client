@@ -22,9 +22,11 @@
 }
 
 .profileDisplayImg {
+	position: relative;
 	height: 40px;
 	width: 40px;
-	border-radius: 50%;
+	top:-1rem;
+    border-radius: 60% 60%;
 }
 
 .profileText {

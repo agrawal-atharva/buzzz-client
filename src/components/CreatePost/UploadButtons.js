@@ -1,17 +1,38 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import Stack from '@mui/material/Stack';
+import { FormControlUnstyledContext } from '@mui/material';
 
 const Input = styled('input')({
 	display: 'none',
 });
 
 const UploadButtons = (props) => {
+	const [fileInputState, setFileInputState] = useState('');
+	const [selectedFile, setSelectedFile] = useState();
+
 	const imageHandler = (event) => {
-		props.postImg(event.target.files[0]);
+		const file = event.target.files[0];
+		console.log(file);
+		const readFile = new FileReader();
+
+		console.log('Result1', readFile.readAsDataURL(file));
+		readFile.addEventListener(
+			'load',
+			function () {
+				// convert image file to base64 string
+				setSelectedFile(readFile.result);
+				console.log('Result2', readFile.result);
+				props.postImg(readFile.result);
+			},
+			false
+		);
+		// if (selectedFile) {
+		// 	readFile.readAsDataURL(selectedFile);
+		// }
 	};
 	return (
 		<Stack direction='row' alignItems='center' spacing={2} alignSelf='center'>
@@ -21,7 +42,8 @@ const UploadButtons = (props) => {
 					id='contained-button-file'
 					multiple
 					type='file'
-					onInput={imageHandler}
+					onChange={imageHandler}
+					value={fileInputState}
 				/>
 				<Button variant='contained' component='span'>
 					Upload
@@ -32,7 +54,8 @@ const UploadButtons = (props) => {
 					accept='image/*'
 					id='icon-button-file'
 					type='file'
-					onInput={imageHandler}
+					onChange={imageHandler}
+					value={fileInputState}
 				/>
 				<IconButton
 					color='primary'

@@ -11,8 +11,9 @@ import FullWidthTextField from './FullWidthTextField.js';
 import UploadButtons from './UploadButtons';
 
 const FormDialog = () => {
-	const UserId = useSelector((state) => state.currentUser.currentUser._id);
-	const [post, setPost] = useState({ UserId, desc: '', img: '' });
+	const id = useSelector((state) => state.currentUser.currentUser._id);
+	console.log('User ID::', id);
+	const [post, setPost] = useState({ userId: '', desc: '', img: '' });
 	const [open, setOpen] = useState(false);
 	const dispatch = useDispatch();
 
@@ -22,17 +23,19 @@ const FormDialog = () => {
 
 	const handleClose = () => {
 		setOpen(false);
-		dispatch(createNewPost(post));
+		console.log('Post', post);
+		console.log('ID::', id);
+		dispatch(createNewPost({ ...post, userId: id }));
 	};
 
 	const postDescHandler = (props) => {
 		console.log('Desc', props);
-		setPost();
+		setPost({ ...post, desc: props });
 	};
 
 	const postImgHandler = (props) => {
 		console.log('Img', props);
-		setPost();
+		setPost({ ...post, img: props });
 	};
 
 	return (
