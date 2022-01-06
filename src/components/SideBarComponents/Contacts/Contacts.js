@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import SearchIcon from '@mui/icons-material/Search';
 import classes from './Contacts.module.css';
-import profileLogo from '/home/atharva/buzzz/buzzz/src/aeecc22a67dac7987a80ac0724658493.jpg';
+import profileLogo from '/home/atharva/Buzzz/buzzz/src/aeecc22a67dac7987a80ac0724658493.jpg';
+import { contactUser } from '../../../redux/actions/userActions/contactUsersAction';
 
 const Contacts = (props) => {
+	const userId = useSelector((state) => state.currentUser.currentUser._id);
+	console.log('UserID', userId);
+
+	//api call to iterate all contact users id and get name/image
+
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(contactUser(userId));
+	}, [userId]);
+	const contact_users = useSelector((state) => state.contactUsers.contactUsers);
+
+	console.log('Contact users', contact_users);
 	return (
 		<div className={classes.contactContainer}>
 			<div className={classes.contactHeader}>
@@ -12,7 +27,20 @@ const Contacts = (props) => {
 			</div>
 			<div className={classes.contactItemContainer}>
 				<ul className={classes.contactItemListContainer}>
-					<li className={classes.contactListItem}>
+					{contact_users.map((item) => {
+						console.log(item);
+						return (
+							<li className={classes.contactListItem} key={item._id}>
+								<img
+									src={item.pic || profileLogo}
+									alt='face'
+									className={classes.contactImg}
+								></img>
+								<span className={classes.contactName}>{item.name}</span>
+							</li>
+						);
+					})}
+					{/* <li className={classes.contactListItem}>
 						<img
 							src={profileLogo}
 							alt='face'
@@ -43,7 +71,7 @@ const Contacts = (props) => {
 							className={classes.contactImg}
 						></img>
 						<span className={classes.contactName}>Atharva Agrawal</span>
-					</li>
+					</li> */}
 				</ul>
 			</div>
 		</div>

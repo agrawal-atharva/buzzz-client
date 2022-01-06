@@ -2,16 +2,16 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { currentUser } from '../../redux/actions/userActions/currentUserAction.js.js';
 import classes from './ProfileInfo.module.css';
-import coverPhoto from '/home/atharva/buzzz/buzzz/src/Natural-Facebook-Cover-Photo.jpg';
-import profileLogo from '/home/atharva/buzzz/buzzz/src/aeecc22a67dac7987a80ac0724658493.jpg';
+import coverPhoto from '/home/atharva/Buzzz/buzzz/src/Natural-Facebook-Cover-Photo.jpg';
+import profileLogo from '/home/atharva/Buzzz/buzzz/src/aeecc22a67dac7987a80ac0724658493.jpg';
 
 function ProfileInfo() {
-	const userId = useSelector((state) => state.currentUser.currentUser._id);
-	console.log('UserId', userId);
+	const user = useSelector((state) => state.currentUser.currentUser);
+	const { username, profilePicture, coverPicture } = user;
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(currentUser());
-	}, []);
+	}, [dispatch]);
 	return (
 		<div className={classes.profileInfoContainer}>
 			<div className={classes.profileImgContainer}>
@@ -22,12 +22,12 @@ function ProfileInfo() {
 				></img>
 				<img
 					className={classes.profileDisplayImg}
-					src={profileLogo}
+					src={profilePicture}
 					alt='display'
 				></img>
 			</div>
 			<div className={classes.profileText}>
-				<h5 className={classes.profileName}>Atharva</h5>
+				<h5 className={classes.profileName}>{username}</h5>
 				<h6 className={classes.profileRole}>Newly Recruit at TTN</h6>
 			</div>
 			<div className={classes.profilePostContainer}>

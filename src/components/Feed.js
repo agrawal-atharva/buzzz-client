@@ -7,9 +7,10 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 import Posts from './Posts/Posts';
 import Shortcut from './Shortcuts/Shortcut';
 import classes from './Feed.module.css';
+import { useSelector } from 'react-redux';
 // import Profile from './Profile';
 
-const Feed = (props) => {
+const Feed = () => {
 	return (
 		<div className={classes.fragment}>
 			<TopBar />
@@ -21,15 +22,13 @@ const Feed = (props) => {
 				<div className={classes.middleContainer}>
 					<CreatePost />
 					<p>Sort by</p>
-					<Posts />
-					<Posts />
+					<Posts  />
 				</div>
 				<div className={classes.rightContainer}>
 					<Contacts />
 					<Suggestions />
 				</div>
 			</div>
-			{/* <Profile /> */}
 		</div>
 	);
 };

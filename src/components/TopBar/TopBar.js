@@ -1,8 +1,8 @@
 import React from 'react';
 import classes from './TopBar.module.css';
 import { Person, Chat } from '@material-ui/icons';
-import profileLogo from '/home/atharva/buzzz/buzzz/src/aeecc22a67dac7987a80ac0724658493.jpg';
-import headerLogo from '/home/atharva/buzzz/buzzz/src/TO-THE-NEW-logo.jpg';
+import profileLogo from '/home/atharva/Buzzz/buzzz/src/aeecc22a67dac7987a80ac0724658493.jpg';
+import headerLogo from '/home/atharva/Buzzz/buzzz/src/TO-THE-NEW-logo.jpg';
 
 const TopBar = (props) => {
 	return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Login.module.css';
 import axios from 'axios';
-import logo from '/home/atharva/buzzz/buzzz/src/TO-THE-NEW-logo.jpg';
+import logo from '/home/atharva/Buzzz/buzzz/src/TO-THE-NEW-logo.jpg';
 
 const Login = (props) => {
 	const signUpHandler = async () => {

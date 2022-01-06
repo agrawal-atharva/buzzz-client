@@ -2,9 +2,9 @@
 	display: flex;
 	flex-direction: column;
 	width: 600px;
-    height: 250px;
-	gap: 10px;
-	background-color: white;
+	height: 250px;
+	gap: 6px;
+	background-color: rgb(126, 188, 243);
 	margin: 0 auto;
 	border-radius: 8px;
 }
@@ -19,20 +19,28 @@
 	height: 100px;
 }
 
+.profileImg {
+	height: 60px;
+	width: 50px;
+	border-radius: 10px;
+}
+
 .profileInfoContainer {
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	gap: 2px;
 	padding: 10px;
 }
 
 .profileName {
 	font-size: large;
 	font-weight: bold;
+	color: white;
 }
 
 .profileDesignantion {
 	font-size: 12px;
+	color: white;
 }
 
 .profileAddressContainer {
@@ -40,6 +48,7 @@
 	align-items: center;
 	gap: 5px;
 	font-size: 10px;
+	color: white;
 }
 
 .buttonContainer {
@@ -59,5 +68,5 @@
 }
 
 .websiteText {
-    font-size: small;
+	font-size: small;
 }
