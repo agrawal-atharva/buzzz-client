@@ -1,11 +1,11 @@
 import React from 'react';
-import CreatePost from './CreatePost/CreatePost';
-import TopBar from './TopBar/TopBar';
-import Contacts from './SideBarComponents/Contacts/Contacts';
-import Suggestions from './SideBarComponents/Suggestions/Suggestions';
-import ProfileInfo from './ProfileInfo/ProfileInfo';
-import Posts from './Posts/Posts';
-import Shortcut from './Shortcuts/Shortcut';
+import CreatePost from '../components/CreatePost/CreatePost';
+import TopBar from '../components/TopBar/TopBar';
+import Contacts from '../components/SideBarComponents/Contacts/Contacts';
+import Suggestions from '../components/SideBarComponents/Suggestions/Suggestions';
+import ProfileInfo from '../components/ProfileInfo/ProfileInfo';
+import Posts from '../components/Posts/Posts';
+import Shortcut from '../components/Shortcuts/Shortcut';
 import classes from './Feed.module.css';
 import { useSelector } from 'react-redux';
 // import Profile from './Profile';
@@ -21,7 +21,6 @@ const Feed = () => {
 				</div>
 				<div className={classes.middleContainer}>
 					<CreatePost />
-					<p>Sort by</p>
 					<Posts  />
 				</div>
 				<div className={classes.rightContainer}>

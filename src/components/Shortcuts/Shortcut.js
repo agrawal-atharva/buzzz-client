@@ -6,6 +6,7 @@ import GroupIcon from '@mui/icons-material/Group';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import CastForEducationIcon from '@mui/icons-material/CastForEducation';
 import CodeIcon from '@mui/icons-material/Code';
+import { Divider } from '@mui/material';
 
 function Shortcut(props) {
 	return (
@@ -37,7 +38,7 @@ function Shortcut(props) {
 					<span className={classes.selectText}>Show More</span>
 				</div>
 			</div>
-			<hr />
+			<Divider />
 			<div className={classes.shortcutItem}>
 				<h4 className={classes.shortcutItemHeading}>Groups</h4>
 				<table className={classes.shortcutContentContainer}>
@@ -65,7 +66,7 @@ function Shortcut(props) {
 					<span className={classes.selectText}>Show More</span>
 				</div>
 			</div>
-			<hr />
+			<Divider />
 			<div className={classes.shortcutItem}>
 				<h4 className={classes.shortcutItemHeading}>Subscription</h4>
 				<table className={classes.shortcutContentContainer}>

@@ -1,6 +1,4 @@
 .topBarContainer {
-	height: 40px;
-	width: 100%;
 	background-color: white;
 	display: flex;
 	align-items: center;
@@ -13,9 +11,10 @@
 }
 
 .logo {
-	height: 30px;
-    width: 30px;
-	margin-left: 20px;
+	height: 3rem;
+	width: 5rem;
+	margin-left: 1rem;
+	box-shadow: 0.1rem 0.1rem 0.1rem rgb(219, 216, 216);
 }
 
 .topBarRight {
@@ -23,22 +22,28 @@
 	align-items: center;
 }
 
+.avatar {
+	height: 2.5rem;
+	width: 2.5rem;
+	margin-right: 0.3rem;
+}
+
 .topBarIcons {
 	display: flex;
-    align-items: center;
+	align-items: center;
 }
 
 .topBarProfile {
 	display: flex;
-    align-items: center;
-    margin-right: 16px;
+	align-items: center;
+	margin-right: 1rem;
 }
 
 .topBarIconItem {
 	margin-right: 15px;
 	cursor: pointer;
 	position: relative;
-    font-size: 5px !important;
+	font-size: 5px !important;
 }
 
 .topBarIconBadge {
@@ -56,15 +61,8 @@
 	font-size: 10px;
 }
 
-.topBarImg {
-	width: 28px;
-	height: 28px;
-	border-radius: 50%;
-	object-fit: cover;
-	cursor: pointer;
-    margin-right: 5px;
-}
-
 .topBarName {
-    font-size: 14px;
+	font-size: 1rem;
+	font-weight: 200;
+	margin-left: 0.1rem;
 }

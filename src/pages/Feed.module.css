@@ -5,29 +5,26 @@
 
 .main {
 	margin: 0 auto;
-	margin-top: 8px;
+	margin-top: 1.5rem;
 	display: flex;
 	justify-content: space-around;
-	align-items: center;
+	flex-wrap: wrap;
 }
 
 .leftContainer {
 	display: flex;
 	flex-direction: column;
-	gap: 15px;
+	gap: 3rem;
 }
 
 .middleContainer {
 	display: flex;
 	flex-direction: column;
-	gap: 15px;
-	margin: 0;
-	padding: 0;
-	margin-bottom: auto;
+	gap: 2rem;
 }
 
 .rightContainer {
 	display: flex;
 	flex-direction: column;
-	gap: 15px;
+	gap: 3rem;
 }

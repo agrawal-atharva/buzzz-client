@@ -4,6 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import classes from './Contacts.module.css';
 import profileLogo from '/home/atharva/Buzzz/buzzz/src/aeecc22a67dac7987a80ac0724658493.jpg';
 import { contactUser } from '../../../redux/actions/userActions/contactUsersAction';
+import { Avatar, Divider } from '@mui/material';
 
 const Contacts = (props) => {
 	const userId = useSelector((state) => state.currentUser.currentUser._id);
@@ -23,55 +24,22 @@ const Contacts = (props) => {
 		<div className={classes.contactContainer}>
 			<div className={classes.contactHeader}>
 				<span className={classes.contactHeaderText}>Contacts</span>
-				<SearchIcon className={classes.contactHeaderIcon}></SearchIcon>
+				<SearchIcon></SearchIcon>
 			</div>
+			<Divider />
 			<div className={classes.contactItemContainer}>
 				<ul className={classes.contactItemListContainer}>
 					{contact_users.map((item) => {
-						console.log(item);
 						return (
 							<li className={classes.contactListItem} key={item._id}>
-								<img
+								<Avatar
 									src={item.pic || profileLogo}
-									alt='face'
-									className={classes.contactImg}
-								></img>
+									className={classes.avatar}
+								/>
 								<span className={classes.contactName}>{item.name}</span>
 							</li>
 						);
 					})}
-					{/* <li className={classes.contactListItem}>
-						<img
-							src={profileLogo}
-							alt='face'
-							className={classes.contactImg}
-						></img>
-						<span className={classes.contactName}>Atharva Agrawal</span>
-					</li>
-					<li className={classes.contactListItem}>
-						<img
-							src={profileLogo}
-							alt='face'
-							className={classes.contactImg}
-						></img>
-						<span className={classes.contactName}>Atharva Agrawal</span>
-					</li>
-					<li className={classes.contactListItem}>
-						<img
-							src={profileLogo}
-							alt='face'
-							className={classes.contactImg}
-						></img>
-						<span className={classes.contactName}>Atharva Agrawal</span>
-					</li>
-					<li className={classes.contactListItem}>
-						<img
-							src={profileLogo}
-							alt='face'
-							className={classes.contactImg}
-						></img>
-						<span className={classes.contactName}>Atharva Agrawal</span>
-					</li> */}
 				</ul>
 			</div>
 		</div>

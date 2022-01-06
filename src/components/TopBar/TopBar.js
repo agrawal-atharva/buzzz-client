@@ -3,8 +3,12 @@ import classes from './TopBar.module.css';
 import { Person, Chat } from '@material-ui/icons';
 import profileLogo from '/home/atharva/Buzzz/buzzz/src/aeecc22a67dac7987a80ac0724658493.jpg';
 import headerLogo from '/home/atharva/Buzzz/buzzz/src/TO-THE-NEW-logo.jpg';
+import { Avatar } from '@mui/material';
+import { useSelector } from 'react-redux';
 
 const TopBar = (props) => {
+	const currentUser = useSelector((state) => state.currentUser.currentUser);
+	const { profilePicture, username } = currentUser;
 	return (
 		<div className={classes.topBarContainer}>
 			<div className={classes.topBarLeft}>
@@ -12,8 +16,8 @@ const TopBar = (props) => {
 			</div>
 			<div className={classes.topBarRight}>
 				<div className={classes.topBarProfile}>
-					<img src={profileLogo} alt='face' className={classes.topBarImg}></img>
-					<span className={classes.topBarName}>Atharva Agrawal</span>
+					<Avatar src={profilePicture} alt='' className={classes.avatar} />
+					<span className={classes.topBarName}>{username}</span>
 				</div>
 				<div className={classes.topBarIcons}>
 					<div className={classes.topBarIconItem}>
