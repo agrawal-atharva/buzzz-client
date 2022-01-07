@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import React from 'react';
 import classes from './ProfileForm.module.css';
 import RadioButton from './RadioButton';
@@ -99,9 +100,9 @@ function ProfileForm(props) {
 				</td>
 			</tr>
 			<tr>
-				<td>
-					<button>Save</button>
-					<button>Reset all</button>
+				<td className={classes.buttonContainer}>
+					<Button variant='contained'>Save</Button>
+					<Button variant='contained'>Reset all</Button>
 				</td>
 			</tr>
 		</table>

@@ -1,12 +1,9 @@
 .table {
-	width: 90%;
-	border-collapse: separate;
-	border-spacing: 1.5rem;
-	margin: 0 auto;
+	padding: 0.5rem;
 }
 
 .label {
-	color: lightgrey;
+	color: rgb(173, 171, 171);
 	font-size: small;
 }
 
@@ -17,10 +14,14 @@
 }
 
 .postal {
-    width: 4rem;
-    height: 2rem;
-    display: inline;
-    margin-right: 0.2rem;
+	width: 4rem;
+	height: 2rem;
+	display: inline;
+	margin-right: 0.2rem;
 }
 
-
+.buttonContainer {
+	margin-top: 0.5rem;
+	display: flex;
+	gap: 1rem;
+}

@@ -33,6 +33,14 @@
 	align-items: center;
 }
 
+.linkToProfile {
+	color: black;
+}
+
+.linkToProfile :hover {
+	color: black;
+}
+
 .topBarProfile {
 	display: flex;
 	align-items: center;

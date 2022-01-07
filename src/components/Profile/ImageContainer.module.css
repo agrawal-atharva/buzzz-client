@@ -1,0 +1,17 @@
+.coverImg {
+	width: 100%;
+	height: 60%;
+	border-radius: 1rem 1rem 0rem 0rem;
+}
+
+.imgContainer {
+	height: 10rem;
+}
+
+.profileImg {
+	height: 5rem;
+	width: 5rem;
+	border-radius: 1rem;
+	position: relative;
+	top: -2rem;
+}

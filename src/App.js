@@ -3,6 +3,7 @@ import './App.css';
 import Feed from './pages/Feed';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
+import SelfProfile from './pages/SelfProfile';
 
 function App() {
 	return (
@@ -10,12 +11,12 @@ function App() {
 			<Routes>
 				<Route exact path='/' element={<Login />} />
 				<Route exact path='/feed' element={<Feed />} />
-				<Route exact path='/profile' element={<Profile />} />
 				<Route
 					exact
 					path='/userProfile/:profileId/:currentUserId'
 					element={<Profile />}
 				/>
+				<Route exact path='/selfProfile/:id' element={<SelfProfile />} />
 			</Routes>
 		</BrowserRouter>
 	);

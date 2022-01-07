@@ -1,0 +1,16 @@
+* {
+	box-sizing: border-box;
+}
+
+.main {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border-radius: 0.1rem;
+}
+
+.leftContainer {
+	margin-top: 1rem;
+	background-color: grey;
+	border-radius: 1rem;
+}

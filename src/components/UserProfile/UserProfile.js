@@ -33,7 +33,7 @@ function UserProfile(props) {
 				<img className={classes.coverImg} src={coverPhoto} alt='cover'></img>
 				<img
 					className={classes.profileImg}
-					src={profilePicture}
+					src={profilePicture || profilePhoto}
 					alt='prof'
 				></img>
 			</div>

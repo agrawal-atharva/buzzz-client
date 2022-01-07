@@ -8,7 +8,7 @@ import Posts from '../components/Posts/Posts';
 import Shortcut from '../components/Shortcuts/Shortcut';
 import classes from './Feed.module.css';
 import { useSelector } from 'react-redux';
-// import Profile from './Profile';
+import Profile from './SelfProfile';
 
 const Feed = () => {
 	return (

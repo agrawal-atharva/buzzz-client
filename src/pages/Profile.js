@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import UserProfile from '../components/UserProfile/UserProfile';
 import Suggestions from '../components/SideBarComponents/Suggestions/Suggestions';
 import classes from './Profile.module.css';
@@ -6,8 +6,12 @@ import classes from './Profile.module.css';
 function Profile(props) {
 	return (
 		<div className={classes.main}>
-			<UserProfile />
-			<Suggestions />
+			<div className={classes.userProfile}>
+				<UserProfile />
+			</div>
+			<div className={classes.suggestions}>
+				<Suggestions />
+			</div>
 		</div>
 	);
 }
