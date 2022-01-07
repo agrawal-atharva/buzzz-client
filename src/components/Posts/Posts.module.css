@@ -1,34 +1,32 @@
 .postContainer {
-	margin: 0 auto;
-	width: 25rem;
 	display: flex;
 	flex-direction: column;
 	background-color: white;
-	padding: 5px;
-	border-radius: 5px;
+	padding: 0.3rem;
+	border-radius: 0.5rem;
 }
 
 .postUserContainer {
 	display: flex;
 }
 
-.postProfileIcon {
-	height: 24px;
-	width: 24px;
-	border-radius: 50%;
-	object-fit: cover;
-	cursor: pointer;
+.avatar {
+	height: 1.8rem;
+	width: 1.8rem;
 }
 
 .postProfileInfoContainer {
 	display: flex;
 	flex-direction: column;
-	margin-left: 2px;
-	padding: 1px;
+	align-self: center;
 }
 
 .postProfileDate {
-	font-size: 8px;
+	font-size: 0.7rem;
+}
+
+.postProfileName {
+	font-size: 1rem;
 }
 
 .pendingIcon {
@@ -40,89 +38,60 @@
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	padding: 2px;
+	padding: 0.3rem;
 }
 
 .postDescription {
-	font-size: 12px;
+	font-size: 1rem;
+	align-self: flex-start;
 }
 
 .postImg {
-	height: 150px;
-	width: 100%;
-	border-radius: 5px;
+	width: 30rem;
+	border-radius: 0.5rem;
 }
 
 .postActionConatiner {
 	display: flex;
-	padding: 2px;
 }
 
 .postActionIconLike {
-    height: 6px;
-	width: 6px;
-	margin-right: 2px;
 	color: rgb(78, 130, 241);
 }
 
 .postActionIconHeart {
-	height: 6px;
-	width: 6px;
 	color: red;
-	margin-right: 2px;
 }
 
 .postActionCount {
-    font-size: 8px;
-    text-align: center;
-	margin-right: 2px;
+	font-size: 0.6rem;
 }
 
 .postActionItemsContainer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 2px;
 }
 
 .postActionItem {
 	color: grey;
-	height: 20px;
-	width: 20px;
 }
 
-.actionContainer{
-    cursor: pointer;
-    padding: 1px;
-    align-items: center;
-}
-
-.postActionItemIcons {
-    font-size: 10px;
-    text-align: center;
-    margin-right: 5px;
-    display: inline;
+.actionContainer {
+	cursor: pointer;
+	align-items: center;
 }
 
 .postCommentConatiner {
 	display: flex;
 	align-items: center;
-	padding: 2px;
-}
-
-.commentImgIcon {
-	align-self: center;
-	height: 20px;
-	width: 20px;
-	border-radius: 50%;
 }
 
 .commentInput {
 	align-self: center;
-	margin-left: 8px;
-	height: 18px;
-	width: 250px;
+	margin-left: 0.5rem;
+	width: 60%;
 	border-color: transparent;
 	background-color: rgb(158, 154, 154);
-	border-radius: 10px;
+	border-radius: 1rem;
 }

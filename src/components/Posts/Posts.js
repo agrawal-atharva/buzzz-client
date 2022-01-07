@@ -10,14 +10,15 @@ import PendingIcon from '@mui/icons-material/Pending';
 import postImg from '/home/atharva/Buzzz/buzzz/src/post.jpg';
 import profileLogo from '/home/atharva/Buzzz/buzzz/src/aeecc22a67dac7987a80ac0724658493.jpg';
 import { getAllPost } from '../../redux/actions/postActions/getAllPostsAction';
+import { Avatar } from '@mui/material';
 
 const Posts = (props) => {
-	const userId = useSelector((state) => state.currentUser.currentUser._id);
-	// console.log('UserID', userId);
+	const currentUser = useSelector((state) => state.currentUser.currentUser);
+	const { _id, profilePicture } = currentUser;
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(getAllPost(userId));
-	}, [userId]);
+		dispatch(getAllPost(_id));
+	}, [_id]);
 	const allPost = useSelector((state) => state.getAllPosts.posts);
 	console.log('All Post', allPost);
 	// return <h1>Hi</h1>;
@@ -28,11 +29,11 @@ const Posts = (props) => {
 			<Fragment key={item._id}>
 				<div className={classes.postContainer}>
 					<div className={classes.postUserContainer}>
-						<img
-							className={classes.postProfileIcon}
-							src={profileLogo}
-							alt='profile'
-						></img>
+						<Avatar
+							src={profilePicture || profileLogo}
+							alt=''
+							className={classes.avatar}
+						/>
 						<div className={classes.postProfileInfoContainer}>
 							<h5 className={classes.postProfileName}>{userId.username}</h5>
 							<p className={classes.postProfileDate}>{createdAt}</p>
@@ -64,11 +65,7 @@ const Posts = (props) => {
 					</div>
 					<hr />
 					<div className={classes.postCommentConatiner}>
-						<img
-							className={classes.commentImgIcon}
-							src={profileLogo}
-							alt='comment icon'
-						></img>
+						<Avatar src={profileLogo} alt='' className={classes.avatar} />
 						<input
 							className={classes.commentInput}
 							placeholder='Write a comment'

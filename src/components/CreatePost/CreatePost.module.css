@@ -1,56 +1,47 @@
 .postBarContainer {
-    background-color: white;
-	height: 35px;
-	width: 400px;
+	background-color: white;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-    margin: 0 auto;
+	border-radius: 0.5rem;
 }
 
 .postBarItems {
 	display: flex;
 	align-items: center;
+	padding: 0.3rem;
 }
 
-.postBarImg {
-	width: 30px;
-	height: 30px;
-    margin-left: 2px;
-	border-radius: 50%;
-	object-fit: cover;
-	cursor: pointer;
-	margin-right: 5px;
+.avatar {
+	height: 1.8rem;
+	width: 1.8rem;
+	margin-left: 0.2rem;
 }
 
 .postBarInput {
-    margin-left: 3px;
-    height: 25px;
-    width: 270px;
-    border-color: transparent;
-    background-color: rgb(158, 154, 154);
-    border-radius: 12px;
+	margin-left: 0.2rem;
+	width: 16rem;
+	border-color: transparent;
+	background-color: rgb(158, 154, 154);
+	border-radius: 2rem;
 }
 
 .postBarIcon {
 	display: flex;
 	align-items: center;
-    margin-right: 5px;
-    padding: 3px;
+	margin-right: 0.3rem;
 }
 
 .postBarIconItem {
-    height: 16px;
-    width: 16px;
-    color: greenyellow;
-    cursor: pointer;
+	color: greenyellow;
+	cursor: pointer;
 }
 
 .postBarIconText {
-    font-size: 10px;
-    cursor: pointer;
+	font-size: 0.6rem;
+	cursor: pointer;
 }
 
 .buttonConatiner {
-    width: 10px;
+	width: 10px;
 }
