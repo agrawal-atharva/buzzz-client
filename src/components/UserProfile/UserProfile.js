@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
@@ -11,6 +11,7 @@ import { userProfile } from '../../redux/actions/userActions/userProfile';
 import { addFriend } from '../../redux/actions/userActions/addFriendAction';
 
 function UserProfile(props) {
+	const [isRequestSent, setIsRequestSent] = useState(false);
 	const currentUser = useSelector((state) => state.currentUser.currentUser);
 	const addFriends = useSelector((state) => state.addFriends);
 	console.log('Add friends', addFriends);
@@ -24,8 +25,8 @@ function UserProfile(props) {
 	}, [profileId]);
 
 	const addFriendHandler = () => {
-		console.log('Coming here');
 		dispatch(addFriend(profileId, currentUserId));
+		setIsRequestSent(true);
 	};
 	return (
 		<div className={classes.profileContainer}>
@@ -52,14 +53,25 @@ function UserProfile(props) {
 					<span className={classes.profileAddress}>{friendsCount} friends</span>
 				</div>
 				<div className={classes.buttonContainer}>
-					<Button
-						className={classes.addFriend}
-						startIcon={<PersonAddIcon />}
-						variant='contained'
-						onClick={addFriendHandler}
-					>
-						Add Friend
-					</Button>
+					{!isRequestSent ? (
+						<Button
+							className={classes.addFriend}
+							startIcon={<PersonAddIcon />}
+							variant='contained'
+							onClick={addFriendHandler}
+							value={isRequestSent}
+						>
+							Add Friend
+						</Button>
+					) : (
+						<Button
+							className={classes.requestSent}
+							variant='contained'
+							value={isRequestSent}
+						>
+							Request Sent
+						</Button>
+					)}
 					<Button
 						className={classes.visitWebsite}
 						startIcon={<HttpIcon />}

@@ -1,6 +1,7 @@
-import * as React from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import classes from './FriendListDialog.module.css';
 import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -9,14 +10,13 @@ import ListItemText from '@mui/material/ListItemText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import PersonIcon from '@mui/icons-material/Person';
-import AddIcon from '@mui/icons-material/Add';
-import Typography from '@mui/material/Typography';
-import { blue } from '@mui/material/colors';
+import { blue, red } from '@mui/material/colors';
 import { Person } from '@material-ui/icons';
-
-const emails = ['username@gmail.com', 'user02@gmail.com'];
+import { Button } from '@mui/material';
 
 function SimpleDialog(props) {
+	const allRequest = useSelector((state) => state.showAllRequest.allRequest);
+	console.log('All Request', allRequest);
 	const { onClose, selectedValue, open } = props;
 
 	const handleClose = () => {
@@ -29,22 +29,35 @@ function SimpleDialog(props) {
 
 	return (
 		<Dialog onClose={handleClose} open={open}>
-			<DialogTitle>Friend Request</DialogTitle>
+			<DialogTitle className={classes.dialogTitle}>Friend Request</DialogTitle>
 			<List sx={{ pt: 0 }}>
-				{emails.map((email) => (
+				{allRequest.map((request) => (
 					<ListItem
-						button
-						onClick={() => handleListItemClick(email)}
-						key={email}
+						onClick={() => handleListItemClick(request)}
+						key={request.id}
 					>
 						<ListItemAvatar>
 							<Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
-								<PersonIcon />
+								<Avatar src={request.profilePic || <PersonIcon />} />
 							</Avatar>
 						</ListItemAvatar>
-						<ListItemText primary={email} />
+						<ListItemText primary={request.name} />
+						<div className={classes.buttonContainer}>
+							<Button
+								variant='contained'
+								style={{ backgroundColor: 'blue', height: '2rem' }}
+							>
+								Accept
+							</Button>
+							<Button
+								variant='contained'
+								style={{ backgroundColor: 'red', height: '2rem' }}
+							>
+								Reject
+							</Button>
+						</div>
 					</ListItem>
-				))} 
+				))}
 			</List>
 		</Dialog>
 	);
@@ -57,8 +70,9 @@ SimpleDialog.propTypes = {
 };
 
 export default function FriendListDialog() {
-	const [open, setOpen] = React.useState(false);
-	const [selectedValue, setSelectedValue] = React.useState(emails[1]);
+	const allRequest = useSelector((state) => state.showAllRequest.allRequest);
+	const [open, setOpen] = useState(false);
+	const [selectedValue, setSelectedValue] = useState(allRequest[1]);
 
 	const handleClickOpen = () => {
 		setOpen(true);

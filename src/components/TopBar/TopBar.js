@@ -5,12 +5,17 @@ import { Chat } from '@material-ui/icons';
 import profileLogo from '/home/atharva/Buzzz/buzzz/src/aeecc22a67dac7987a80ac0724658493.jpg';
 import headerLogo from '/home/atharva/Buzzz/buzzz/src/TO-THE-NEW-logo.jpg';
 import { Avatar } from '@mui/material';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import FriendListDialog from '../FriendListDialog/FriendListDialog';
+import { showAllRequest } from '../../redux/actions/userActions/showAllRequestAction';
 
 const TopBar = (props) => {
 	const currentUser = useSelector((state) => state.currentUser.currentUser);
 	const { profilePicture, username, _id } = currentUser;
+	const dispatch = useDispatch();
+	const showRequestHandler = () => {
+		dispatch(showAllRequest(_id));
+	};
 	return (
 		<div className={classes.topBarContainer}>
 			<div className={classes.topBarLeft}>
@@ -24,7 +29,10 @@ const TopBar = (props) => {
 					</div>
 				</Link>
 				<div className={classes.topBarIcons}>
-					<div className={classes.topBarIconItem}>
+					<div
+						className={classes.topBarIconItem}
+						onClick={showRequestHandler()}
+					>
 						<FriendListDialog />
 						<span className={classes.topBarIconBadge}>1</span>
 					</div>
