@@ -1,9 +1,13 @@
 import { combineReducers } from 'redux';
 import { getAllPostReducer } from './postReducer/getAllPostReducer';
+import { getSinglePostReducer } from './postReducer/getSinglePostReducer';
+import { likePostReducer } from './postReducer/likePostReducer';
+import { acceptRequestReducer } from './userReducer/acceptRequestReducer';
 import { addFriendReducer } from './userReducer/addFriendReducer';
 import { contactUserReducer } from './userReducer/contactUserReducer';
 import { currentUserReducer } from './userReducer/currentUserReducer';
-import { showAllRequest } from './userReducer/showAllRequestReducer';
+import { rejectRequestReducer } from './userReducer/rejectRequestReducer';
+import { showAllRequestReducer } from './userReducer/showAllRequestReducer';
 import { suggestionUsersReducer } from './userReducer/suggestionUserReducer';
 
 const rootReducer = combineReducers({
@@ -12,7 +16,11 @@ const rootReducer = combineReducers({
 	contactUsers: contactUserReducer,
 	addFriends: addFriendReducer,
 	getAllPosts: getAllPostReducer,
-	showAllRequest: showAllRequest,
+	showAllRequest: showAllRequestReducer,
+	acceptRequest: acceptRequestReducer,
+	rejectRequest: rejectRequestReducer,
+	likePost: likePostReducer,
+	getSinglePost: getSinglePostReducer,
 });
 
 export default rootReducer;

@@ -11,9 +11,14 @@ import postImg from '/home/atharva/Buzzz/buzzz/src/post.jpg';
 import profileLogo from '/home/atharva/Buzzz/buzzz/src/aeecc22a67dac7987a80ac0724658493.jpg';
 import { getAllPost } from '../../redux/actions/postActions/getAllPostsAction';
 import { Avatar } from '@mui/material';
+import { likePost } from '../../redux/actions/postActions/likePostAction';
+import { getSinglePost } from '../../redux/actions/postActions/getSinglePostAction';
 
 const Posts = (props) => {
 	const currentUser = useSelector((state) => state.currentUser.currentUser);
+	const singlePost = useSelector((state) => state.getSinglePost);
+	console.log('Single Post', singlePost);
+	// const postLikes = singlePost.likes.length;
 	const { _id, profilePicture } = currentUser;
 	const dispatch = useDispatch();
 	useEffect(() => {
@@ -21,7 +26,15 @@ const Posts = (props) => {
 	}, [_id]);
 	const allPost = useSelector((state) => state.getAllPosts.posts);
 	console.log('All Post', allPost);
-	// return <h1>Hi</h1>;
+
+	const likePostHandler = (postId) => {
+		dispatch(likePost(postId, _id));
+	};
+
+	const showLikeHandler = (postId) => {
+		console.log('postID', postId);
+		dispatch(getSinglePost(postId));
+	};
 
 	return allPost.map((item) => {
 		const { img, comments, like, userId, createdAt, desc } = item;
@@ -48,7 +61,14 @@ const Posts = (props) => {
 						<RecommendIcon
 							className={classes.postActionIconLike}
 						></RecommendIcon>
-						<p className={classes.postActionCount}>238</p>
+						<p
+							className={classes.postActionCount}
+							onLoad={() => {
+								showLikeHandler(item._id);
+							}}
+						>
+							{/* {postLikes} */}
+						</p>
 						<FavoriteIcon
 							className={classes.postActionIconHeart}
 						></FavoriteIcon>
@@ -56,12 +76,22 @@ const Posts = (props) => {
 					</div>
 					<hr />
 					<div className={classes.postActionItemsContainer}>
-						<ThumbUpIcon className={classes.postActionItem} />
-						<span className={classes.postActionItemIcons}>Like</span>
-						<ThumbDownIcon className={classes.postActionItem} />
-						<span className={classes.postActionItemIcons}>DisLike</span>
-						<CommentIcon className={classes.postActionItem} />
-						<span className={classes.postActionItemIcons}>Comment</span>
+						<div
+							className={classes.container}
+							onClick={() => {
+								likePostHandler(item._id);
+							}}
+						>
+							<ThumbUpIcon className={classes.postActionItem} />
+							<span className={classes.postActionItemIcons}>Like</span>
+						</div>
+						<div
+							className={classes.container}
+							onClick={likePostHandler(item._id)}
+						>
+							<ThumbDownIcon className={classes.postActionItem} />
+							<span className={classes.postActionItemIcons}>DisLike</span>
+						</div>
 					</div>
 					<hr />
 					<div className={classes.postCommentConatiner}>

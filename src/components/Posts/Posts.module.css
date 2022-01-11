@@ -69,7 +69,7 @@
 
 .postActionItemsContainer {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 }
 
@@ -94,4 +94,12 @@
 	border-color: transparent;
 	background-color: rgb(158, 154, 154);
 	border-radius: 1rem;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	gap: 2rem;
+	cursor: pointer;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import classes from './FriendListDialog.module.css';
 import PropTypes from 'prop-types';
 import Avatar from '@mui/material/Avatar';
@@ -13,8 +13,14 @@ import PersonIcon from '@mui/icons-material/Person';
 import { blue, red } from '@mui/material/colors';
 import { Person } from '@material-ui/icons';
 import { Button } from '@mui/material';
+import { acceptRequest } from '../../redux/actions/userActions/acceptFriendRequest';
+import { rejectRequest } from '../../redux/actions/userActions/rejectRequestAction';
 
 function SimpleDialog(props) {
+	const dispatch = useDispatch();
+	const currentUserId = useSelector(
+		(state) => state.currentUser.currentUser._id
+	);
 	const allRequest = useSelector((state) => state.showAllRequest.allRequest);
 	console.log('All Request', allRequest);
 	const { onClose, selectedValue, open } = props;
@@ -24,7 +30,16 @@ function SimpleDialog(props) {
 	};
 
 	const handleListItemClick = (value) => {
+		console.log('Value', value);
 		onClose(value);
+	};
+
+	const acceptRequestHandler = (acceptUserId) => {
+		dispatch(acceptRequest(currentUserId, acceptUserId));
+	};
+
+	const rejectRequestHandler = (rejectUserId) => {
+		dispatch(rejectRequest(currentUserId, rejectUserId));
 	};
 
 	return (
@@ -46,12 +61,14 @@ function SimpleDialog(props) {
 							<Button
 								variant='contained'
 								style={{ backgroundColor: 'blue', height: '2rem' }}
+								onClick={acceptRequestHandler(request.id)}
 							>
 								Accept
 							</Button>
 							<Button
 								variant='contained'
 								style={{ backgroundColor: 'red', height: '2rem' }}
+								onClick={rejectRequestHandler(request.id)}
 							>
 								Reject
 							</Button>
