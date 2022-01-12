@@ -8,18 +8,14 @@ import { Avatar, Divider } from '@mui/material';
 
 const Contacts = (props) => {
 	const userId = useSelector((state) => state.currentUser.currentUser._id);
-	console.log('UserID', userId);
-
-	//api call to iterate all contact users id and get name/image
-
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(contactUser(userId));
-	}, [userId]);
+		if (userId) {
+			dispatch(contactUser(userId));
+		}
+	}, [userId, dispatch]);
 	const contact_users = useSelector((state) => state.contactUsers.contactUsers);
-
-	console.log('Contact users', contact_users);
 	return (
 		<div className={classes.contactContainer}>
 			<div className={classes.contactHeader}>

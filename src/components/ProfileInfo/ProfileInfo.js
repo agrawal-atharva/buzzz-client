@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { currentUser } from '../../redux/actions/userActions/currentUserAction.js.js';
 import classes from './ProfileInfo.module.css';
 import coverPhoto from '/home/atharva/Buzzz/buzzz/src/Natural-Facebook-Cover-Photo.jpg';
-import profileLogo from '/home/atharva/Buzzz/buzzz/src/aeecc22a67dac7987a80ac0724658493.jpg';
 import { Avatar } from '@mui/material';
 
 function ProfileInfo() {
@@ -18,10 +17,10 @@ function ProfileInfo() {
 			<div className={classes.profileImgContainer}>
 				<img
 					className={classes.profileCoverImg}
-					src={coverPhoto}
+					src={coverPicture || coverPhoto}
 					alt='profile'
 				></img>
-				<Avatar src={profilePicture} alt='' className={classes.avatar}/>
+				<Avatar src={profilePicture} alt='' className={classes.avatar} />
 			</div>
 			<div className={classes.profileText}>
 				<h5 className={classes.profileName}>{username}</h5>

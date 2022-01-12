@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { disLikePostReducer } from './postReducer/disLikePostReducer';
 import { getAllPostReducer } from './postReducer/getAllPostReducer';
 import { getSinglePostReducer } from './postReducer/getSinglePostReducer';
 import { likePostReducer } from './postReducer/likePostReducer';
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
 	acceptRequest: acceptRequestReducer,
 	rejectRequest: rejectRequestReducer,
 	likePost: likePostReducer,
+	disLikePost: disLikePostReducer,
 	getSinglePost: getSinglePostReducer,
 });
 

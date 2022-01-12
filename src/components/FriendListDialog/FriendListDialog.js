@@ -10,7 +10,7 @@ import ListItemText from '@mui/material/ListItemText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import PersonIcon from '@mui/icons-material/Person';
-import { blue, red } from '@mui/material/colors';
+import { blue } from '@mui/material/colors';
 import { Person } from '@material-ui/icons';
 import { Button } from '@mui/material';
 import { acceptRequest } from '../../redux/actions/userActions/acceptFriendRequest';
@@ -22,23 +22,25 @@ function SimpleDialog(props) {
 		(state) => state.currentUser.currentUser._id
 	);
 	const allRequest = useSelector((state) => state.showAllRequest.allRequest);
-	console.log('All Request', allRequest);
-	const { onClose, selectedValue, open } = props;
+	const { onClose, open } = props;
 
 	const handleClose = () => {
-		onClose(selectedValue);
+		onClose();
 	};
 
 	const handleListItemClick = (value) => {
-		console.log('Value', value);
-		onClose(value);
+		onClose();
 	};
 
 	const acceptRequestHandler = (acceptUserId) => {
-		dispatch(acceptRequest(currentUserId, acceptUserId));
+		if (currentUserId && acceptUserId) {
+			dispatch(acceptRequest(currentUserId, acceptUserId));
+		}
 	};
 
 	const rejectRequestHandler = (rejectUserId) => {
+		if (currentUserId && rejectUserId) {
+		}
 		dispatch(rejectRequest(currentUserId, rejectUserId));
 	};
 
@@ -61,14 +63,18 @@ function SimpleDialog(props) {
 							<Button
 								variant='contained'
 								style={{ backgroundColor: 'blue', height: '2rem' }}
-								onClick={acceptRequestHandler(request.id)}
+								onClick={() => {
+									acceptRequestHandler(request.id);
+								}}
 							>
 								Accept
 							</Button>
 							<Button
 								variant='contained'
 								style={{ backgroundColor: 'red', height: '2rem' }}
-								onClick={rejectRequestHandler(request.id)}
+								onClick={() => {
+									rejectRequestHandler(request.id);
+								}}
 							>
 								Reject
 							</Button>
@@ -83,13 +89,11 @@ function SimpleDialog(props) {
 SimpleDialog.propTypes = {
 	onClose: PropTypes.func.isRequired,
 	open: PropTypes.bool.isRequired,
-	selectedValue: PropTypes.string.isRequired,
+	// selectedValue: PropTypes.string.isRequired,
 };
 
 export default function FriendListDialog() {
-	const allRequest = useSelector((state) => state.showAllRequest.allRequest);
 	const [open, setOpen] = useState(false);
-	const [selectedValue, setSelectedValue] = useState(allRequest[1]);
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -97,14 +101,14 @@ export default function FriendListDialog() {
 
 	const handleClose = (value) => {
 		setOpen(false);
-		setSelectedValue(value);
+		// setSelectedValue(value);
 	};
 
 	return (
 		<div>
 			<Person onClick={handleClickOpen} />
 			<SimpleDialog
-				selectedValue={selectedValue}
+				// selectedValue={selectedValue}
 				open={open}
 				onClose={handleClose}
 			/>

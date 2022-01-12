@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import UserProfile from '../components/UserProfile/UserProfile';
 import Suggestions from '../components/SideBarComponents/Suggestions/Suggestions';
 import classes from './Profile.module.css';

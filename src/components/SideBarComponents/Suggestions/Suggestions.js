@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import SearchIcon from '@mui/icons-material/Search';
 import classes from '../Contacts/Contacts.module.css';
@@ -17,15 +17,10 @@ const Suggestions = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(suggestedUsers(userId));
-	}, [userId]);
-	console.log(
-		'SuggestedUser',
-		suggested_user.map((user) => {
-			const filterArray = { img: user.profilePicture, name: user.username };
-			return filterArray;
-		})
-	);
+		if (userId) {
+			dispatch(suggestedUsers(userId));
+		}
+	}, [userId, dispatch]);
 
 	const filteredSuggestedArray = suggested_user.map((user) => {
 		const filterArray = {
@@ -50,7 +45,6 @@ const Suggestions = () => {
 			<div className={classes.contactItemContainer}>
 				<ul className={classes.contactItemListContainer}>
 					{filteredSuggestedArray.map((item) => {
-						console.log(item);
 						return (
 							<li key={item._id}>
 								<Link

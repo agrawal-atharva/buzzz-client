@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { createNewPost } from '../../redux/actions/postActions/postActions';
 
 const FullWidthTextField = (props) => {
 	const captionHandler = (event) => {

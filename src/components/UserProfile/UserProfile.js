@@ -22,7 +22,7 @@ function UserProfile(props) {
 
 	useEffect(() => {
 		dispatch(userProfile(profileId));
-	}, [profileId]);
+	}, [profileId, dispatch]);
 
 	const addFriendHandler = () => {
 		dispatch(addFriend(profileId, currentUserId));

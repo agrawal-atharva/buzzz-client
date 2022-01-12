@@ -2,7 +2,6 @@ import React from 'react';
 import classes from './TopBar.module.css';
 import { Link } from 'react-router-dom';
 import { Chat } from '@material-ui/icons';
-import profileLogo from '/home/atharva/Buzzz/buzzz/src/aeecc22a67dac7987a80ac0724658493.jpg';
 import headerLogo from '/home/atharva/Buzzz/buzzz/src/TO-THE-NEW-logo.jpg';
 import { Avatar } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,10 +10,13 @@ import { showAllRequest } from '../../redux/actions/userActions/showAllRequestAc
 
 const TopBar = (props) => {
 	const currentUser = useSelector((state) => state.currentUser.currentUser);
+	const allRequest = useSelector((state) => state.showAllRequest.allRequest);
 	const { profilePicture, username, _id } = currentUser;
 	const dispatch = useDispatch();
 	const showRequestHandler = () => {
-		dispatch(showAllRequest(_id));
+		if (_id) {
+			dispatch(showAllRequest(_id));
+		}
 	};
 	return (
 		<div className={classes.topBarContainer}>
@@ -29,12 +31,9 @@ const TopBar = (props) => {
 					</div>
 				</Link>
 				<div className={classes.topBarIcons}>
-					<div
-						className={classes.topBarIconItem}
-						onClick={showRequestHandler()}
-					>
+					<div className={classes.topBarIconItem} onClick={showRequestHandler}>
 						<FriendListDialog />
-						<span className={classes.topBarIconBadge}>1</span>
+						<span className={classes.topBarIconBadge}>{allRequest.length}</span>
 					</div>
 					<div className={classes.topBarIconItem}>
 						<Chat />
