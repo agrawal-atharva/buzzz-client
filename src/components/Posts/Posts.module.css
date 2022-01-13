@@ -86,15 +86,27 @@
 .postCommentConatiner {
 	display: flex;
 	align-items: center;
+	gap: 0.5rem;
 }
 
 .commentInput {
 	align-self: center;
 	margin-left: 0.5rem;
 	width: 60%;
+	height: 2rem;
 	border-color: transparent;
 	background-color: rgb(158, 154, 154);
 	border-radius: 1rem;
+}
+
+.submitButton {
+	height: 2rem;
+	width: 5rem;
+	background-color: cadetblue;
+	border: transparent;
+	border-radius: 0.3rem;
+	padding: 0.2rem;
+	cursor: pointer;
 }
 
 .container {
@@ -103,4 +115,28 @@
 	justify-content: space-around;
 	gap: 2rem;
 	cursor: pointer;
+}
+
+.loadCommentContainer {
+	display: flex;
+	gap: 0.5rem;
+	align-items: flex-start;
+	justify-content: space-between;
+	flex-direction: column;
+	font-size: 0.8rem;
+}
+
+.commentAvatar {
+	height: 1.2rem;
+	width: 1.2rem;
+}
+
+.commentsContainer {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.comments {
+	list-style: none;
 }

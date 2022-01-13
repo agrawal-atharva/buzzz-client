@@ -10,6 +10,7 @@ import { currentUserReducer } from './userReducer/currentUserReducer';
 import { rejectRequestReducer } from './userReducer/rejectRequestReducer';
 import { showAllRequestReducer } from './userReducer/showAllRequestReducer';
 import { suggestionUsersReducer } from './userReducer/suggestionUserReducer';
+import { addCommentReducer } from './postReducer/addCommentReducer';
 
 const rootReducer = combineReducers({
 	currentUser: currentUserReducer,
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
 	likePost: likePostReducer,
 	disLikePost: disLikePostReducer,
 	getSinglePost: getSinglePostReducer,
+	addComment: addCommentReducer,
 });
 
 export default rootReducer;

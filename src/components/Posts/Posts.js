@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import classes from './Posts.module.css';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
@@ -9,12 +9,14 @@ import PendingIcon from '@mui/icons-material/Pending';
 import postImg from '/home/atharva/Buzzz/buzzz/src/post.jpg';
 import profileLogo from '/home/atharva/Buzzz/buzzz/src/aeecc22a67dac7987a80ac0724658493.jpg';
 import { getAllPost } from '../../redux/actions/postActions/getAllPostsAction';
+import { addComment } from '../../redux/actions/postActions/addCommentAction';
 import { Avatar } from '@mui/material';
 import { likePost } from '../../redux/actions/postActions/likePostAction';
 import { disLikePost } from '../../redux/actions/postActions/dislikePostAction';
-import ThumbDownOffAlt from '@mui/icons-material/ThumbDownOffAlt';
+import FolderList from './Comments';
 
 const Posts = (props) => {
+	const [commentText, setCommentText] = useState('');
 	const currentUser = useSelector((state) => state.currentUser.currentUser);
 	const { _id, profilePicture } = currentUser;
 	const dispatch = useDispatch();
@@ -37,8 +39,25 @@ const Posts = (props) => {
 		}
 	};
 
+	const addCommentHandler = (event) => {
+		setCommentText(event.target.value);
+	};
+
+	const commentSubmitHandler = (postId, userId) => {
+		const newComment = {
+			text: commentText,
+			postedBy: userId,
+		};
+		dispatch(addComment(postId, newComment));
+	};
+
+	const formSubmitHandler = (e) => {
+		e.preventDefault();
+		setCommentText('');
+	};
+
 	return allPost.map((item) => {
-		const { img, likes, dislikes, userId, createdAt, desc } = item;
+		const { img, likes, dislikes, userId, createdAt, desc, comments } = item;
 		return (
 			<Fragment key={item._id}>
 				<div className={classes.postContainer}>
@@ -67,9 +86,9 @@ const Posts = (props) => {
 							className={classes.postActionIconLike}
 						></ThumbUpOffAltIcon>
 						<p className={classes.postActionCount}>{likes?.length}</p>
-						<ThumbDownOffAlt
+						<ThumbDownOffAltIcon
 							className={classes.postActionIconHeart}
-						></ThumbDownOffAlt>
+						></ThumbDownOffAltIcon>
 						<p className={classes.postActionCount}>{dislikes?.length}</p>
 					</div>
 					<hr />
@@ -94,14 +113,32 @@ const Posts = (props) => {
 						</div>
 					</div>
 					<hr />
-					<div className={classes.postCommentConatiner}>
-						<Avatar src={profileLogo} alt='' className={classes.avatar} />
+					<form
+						onSubmit={formSubmitHandler}
+						className={classes.postCommentConatiner}
+					>
+						<Avatar
+							src={profilePicture || profileLogo}
+							alt=''
+							className={classes.avatar}
+						/>
 						<input
+							onChange={addCommentHandler}
+							value={commentText}
 							className={classes.commentInput}
 							placeholder='Write a comment'
 						></input>
-					</div>
-					<div className={classes.loadCommentContainer}></div>
+						<button
+							className={classes.submitButton}
+							onClick={() => {
+								commentSubmitHandler(item._id, _id);
+							}}
+						>
+							Submit
+						</button>
+					</form>
+					<hr />
+					{comments.length > 0 && <FolderList postComments={comments} />}
 				</div>
 			</Fragment>
 		);
