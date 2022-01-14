@@ -33,7 +33,11 @@ const UploadButtons = (props) => {
 					type='file'
 					onChange={handlefileInputChange}
 				/>
-				<Button variant='contained' component='span'>
+				<Button
+					variant='contained'
+					component='span'
+					sx={{ bgcolor: '#b19f9e' }}
+				>
 					Upload
 				</Button>
 			</label>
@@ -43,6 +47,7 @@ const UploadButtons = (props) => {
 					color='primary'
 					aria-label='upload picture'
 					component='span'
+					sx={{ color: '#b19f9e' }}
 				>
 					<PhotoCamera />
 				</IconButton>

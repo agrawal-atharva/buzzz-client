@@ -1,6 +1,6 @@
 .profileInfoContainer {
 	border-radius: 1rem;
-	background-color: white;
+	background-color: #B19F9E;
 	display: flex;
 	flex-direction: column;
 }
@@ -21,6 +21,7 @@
 	position: relative;
 	top: -1rem;
 	border-radius: 50%;
+	border: 0.2rem solid white;
 }
 
 .profileText {

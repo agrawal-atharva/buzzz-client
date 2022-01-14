@@ -1,5 +1,5 @@
 .postBarContainer {
-	background-color: white;
+	background-color: #B19F9E;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -16,13 +16,14 @@
 	height: 1.8rem;
 	width: 1.8rem;
 	margin-left: 0.2rem;
+	border: 0.2rem solid white;
 }
 
 .postBarInput {
 	margin-left: 0.2rem;
 	width: 16rem;
 	border-color: transparent;
-	background-color: rgb(158, 154, 154);
+	background-color: white;
 	border-radius: 2rem;
 }
 
@@ -33,13 +34,14 @@
 }
 
 .postBarIconItem {
-	color: greenyellow;
+	color: white;
 	cursor: pointer;
 }
 
 .postBarIconText {
 	font-size: 0.6rem;
 	cursor: pointer;
+	color: white;
 }
 
 .buttonConatiner {

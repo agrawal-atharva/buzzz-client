@@ -49,8 +49,8 @@ const FormDialog = () => {
 				<FullWidthTextField postDesc={postDescHandler} />
 				<UploadButtons imgUrl={postImgHandler} />
 				<DialogActions>
-					<Button onClick={handleClose}>Cancel</Button>
-					<Button onClick={handleClose}>Post</Button>
+					<Button onClick={handleClose} sx={{color: '#b19f9e'}}>Cancel</Button>
+					<Button onClick={handleClose} sx={{color: '#b19f9e'}}>Post</Button>
 				</DialogActions>
 			</Dialog>
 		</div>

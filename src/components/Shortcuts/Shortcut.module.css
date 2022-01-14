@@ -1,5 +1,5 @@
 .shortcutContainer {
-	background-color: white;
+	background-color: #B19F9E;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -19,7 +19,7 @@
 
 .showMoreContainer {
 	display: flex;
-	color: steelblue;
+	color: #A16E83;
 	cursor: pointer;
 }
 
@@ -31,7 +31,7 @@
 .select {
 	border: none;
 	background-color: transparent;
-	color: steelblue;
+	color: #A16E83;
 }
 
 .select:focus {

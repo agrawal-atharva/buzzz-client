@@ -1,5 +1,5 @@
 .topBarContainer {
-	background-color: white;
+	background-color: #B19F9E;
 	display: flex;
 	align-items: center;
 	position: sticky;
@@ -26,6 +26,7 @@
 	height: 2.5rem;
 	width: 2.5rem;
 	margin-right: 0.3rem;
+	border: 0.2rem solid white;
 }
 
 .topBarIcons {
@@ -34,11 +35,11 @@
 }
 
 .linkToProfile {
-	color: black;
+	color: white;
 }
 
 .linkToProfile :hover {
-	color: black;
+	color: white;
 }
 
 .topBarProfile {

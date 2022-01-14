@@ -1,7 +1,7 @@
 .postContainer {
 	display: flex;
 	flex-direction: column;
-	background-color: white;
+	background-color: #b19f9e;
 	padding: 0.3rem;
 	border-radius: 0.5rem;
 }
@@ -13,6 +13,7 @@
 .avatar {
 	height: 1.8rem;
 	width: 1.8rem;
+	border: 0.2rem solid white;
 }
 
 .postProfileInfoContainer {
@@ -31,7 +32,7 @@
 
 .pendingIcon {
 	margin-left: auto;
-	color: grey;
+	color: white;
 }
 
 .postContentContainer {
@@ -95,14 +96,15 @@
 	width: 60%;
 	height: 2rem;
 	border-color: transparent;
-	background-color: rgb(158, 154, 154);
+	background-color: white;
 	border-radius: 1rem;
 }
 
 .submitButton {
 	height: 2rem;
 	width: 5rem;
-	background-color: cadetblue;
+	background-color: #a16e83;
+	color: white;
 	border: transparent;
 	border-radius: 0.3rem;
 	padding: 0.2rem;
@@ -129,6 +131,7 @@
 .commentAvatar {
 	height: 1.2rem;
 	width: 1.2rem;
+	border: 0.2rem solid white;
 }
 
 .commentsContainer {

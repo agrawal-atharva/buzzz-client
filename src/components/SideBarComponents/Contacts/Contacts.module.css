@@ -1,5 +1,5 @@
 .contactContainer {
-	background-color: white;
+	background-color: #b19f9e;
 	border-radius: 1rem;
 }
 
@@ -21,6 +21,7 @@
 	padding: 0;
 	align-items: flex-start;
 	justify-content: space-between;
+	list-style: none;
 }
 
 .contactListItem {
@@ -29,14 +30,18 @@
 	justify-content: space-between;
 	line-height: 2.5rem;
 	padding: 0.4rem;
-    color: black;
+	color: white;
 }
 
 .contactItemListContainer :hover {
-    color: black;
+	color: white;
 }
 
 .contactName {
 	font-size: 1rem;
-    margin-left: 0.5rem;
+	margin-left: 0.5rem;
+}
+
+.avatar {
+	border: 0.2rem solid white;
 }

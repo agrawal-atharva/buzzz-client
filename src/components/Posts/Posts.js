@@ -57,19 +57,31 @@ const Posts = (props) => {
 	};
 
 	return allPost.map((item) => {
-		const { img, likes, dislikes, userId, createdAt, desc, comments } = item;
+		const {
+			img,
+			likes,
+			dislikes,
+			userId,
+			createdAt,
+			desc,
+			comments,
+			displayPic,
+		} = item;
+		const postDate = createdAt.split('T');
 		return (
 			<Fragment key={item._id}>
 				<div className={classes.postContainer}>
 					<div className={classes.postUserContainer}>
 						<Avatar
-							src={profilePicture || profileLogo}
+							src={displayPic || profileLogo}
 							alt=''
 							className={classes.avatar}
 						/>
 						<div className={classes.postProfileInfoContainer}>
 							<h5 className={classes.postProfileName}>{userId.username}</h5>
-							<p className={classes.postProfileDate}>{createdAt}</p>
+							<p className={classes.postProfileDate}>
+								Posted on: {postDate[0]}
+							</p>
 						</div>
 						<PendingIcon className={classes.pendingIcon} />
 					</div>
@@ -99,7 +111,10 @@ const Posts = (props) => {
 								likePostHandler(item._id);
 							}}
 						>
-							<ThumbUpIcon className={classes.postActionItem} />
+							<ThumbUpIcon
+								sx={{ color: 'white' }}
+								className={classes.postActionItem}
+							/>
 							<span className={classes.postActionItemIcons}>Like</span>
 						</div>
 						<div
@@ -108,7 +123,10 @@ const Posts = (props) => {
 								disLikePostHandler(item._id);
 							}}
 						>
-							<ThumbDownIcon className={classes.postActionItem} />
+							<ThumbDownIcon
+								sx={{ color: 'white' }}
+								className={classes.postActionItem}
+							/>
 							<span className={classes.postActionItemIcons}>DisLike</span>
 						</div>
 					</div>
